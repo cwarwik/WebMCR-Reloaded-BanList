@@ -87,10 +87,13 @@ class module{
 
 	public function content(){
 
-        $page = "?mode=banlist&pid=";
-        $query = $this->db->query("SELECT COUNT(*) FROM `{$this->cfg_m['MOD_SETTING']['TABLE']}`");
+        $sql	= "SELECT COUNT(*) FROM `{$this->cfg_m['MOD_SETTING']['TABLE']}`";
+        $page	= "?mode=banlist&pid=";
+        $query = $this->db->query($sql);
 
-        if(!$query){exit("SQL Error");}
+        if(!$query){ 
+            exit("SQL Error"); 
+        }
 
         $ar = $this->db->fetch_array($query);
         
